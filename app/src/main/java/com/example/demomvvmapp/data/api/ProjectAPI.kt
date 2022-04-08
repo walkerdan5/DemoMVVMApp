@@ -5,8 +5,8 @@ import java.sql.Timestamp
 
 class ProjectAPI(private val apiService: ApiService): ApiContract {
 
-    override suspend fun moonPhases(headers: Map<String, String>, timestamp: Timestamp): MoonPhaseResponse {
-        return apiService.getMoonPhases(headers, timestamp)
+    override suspend fun moonPhases(timestamp: Long): Any {
+        return apiService.getMoonPhases(timestamp)
     }
 
 }

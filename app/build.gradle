@@ -24,6 +24,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    flavorDimensions "default"
+
+    productFlavors {
+        dev {
+            dimension "default"
+            applicationIdSuffix = ".dev"
+            buildConfigField "String", "API_URL", '"https://api.farmsense.net/v1"'
+        }
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -75,4 +84,8 @@ dependencies {
 
     //Logging
     implementation "com.jakewharton.timber:timber:$version_timber"
+
+    /* -- Debugging Libraries -- */
+    //Reading api logs
+    debugImplementation 'com.github.chuckerteam.chucker:library:3.5.2'
 }
