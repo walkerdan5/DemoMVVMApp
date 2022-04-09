@@ -6,5 +6,5 @@ import java.sql.Timestamp
 
 interface ApiContract {
 
-    suspend fun moonPhases(timestamp: Long): Any
+    suspend fun moonPhases(timestamp: Long): List<MoonPhaseResponse>
 }

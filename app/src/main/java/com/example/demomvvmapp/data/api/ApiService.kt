@@ -9,5 +9,5 @@ import java.sql.Timestamp
 interface ApiService {
 
     @GET(ProjectEndpoints.MOON_PHASES)
-    suspend fun getMoonPhases(@Query("d") timestamp: Long): Any
+    suspend fun getMoonPhases(@Query("d") timestamp: Long): List<MoonPhaseResponse>
 }

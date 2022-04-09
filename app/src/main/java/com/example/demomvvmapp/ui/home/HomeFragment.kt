@@ -40,6 +40,24 @@ class HomeFragment : BaseFragment<HomeEvent, HomeViewModel>() {
     }
 
     private fun addObservers() {
+        viewModel.progressVisibility.observe(viewLifecycleOwner) { showProgress ->
+            binding.loadingProgress.visibility = View.VISIBLE.takeIf { showProgress } ?: View.GONE
+        }
 
+        viewModel.setIllumination.observe(viewLifecycleOwner) {
+            when (it) {
+                0 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0)
+                1 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_1)
+                2 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_2)
+                3 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_3)
+                4 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_4)
+                5 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_5)
+                6 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_6)
+                7 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_7)
+                8 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_8)
+                9 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_9)
+                10 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_10)
+            }
+        }
     }
 }
