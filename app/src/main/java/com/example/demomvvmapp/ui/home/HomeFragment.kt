@@ -13,6 +13,7 @@ import com.example.demomvvmapp.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.example.demomvvmapp.databinding.FragmentHomeBinding
 import org.koin.core.component.KoinApiExtension
+import kotlin.math.roundToInt
 
 @KoinApiExtension
 class HomeFragment : BaseFragment<HomeEvent, HomeViewModel>() {
@@ -44,20 +45,28 @@ class HomeFragment : BaseFragment<HomeEvent, HomeViewModel>() {
             binding.loadingProgress.visibility = View.VISIBLE.takeIf { showProgress } ?: View.GONE
         }
 
+        viewModel.responseData.observe(viewLifecycleOwner) {
+
+        }
+
         viewModel.setIllumination.observe(viewLifecycleOwner) {
-            when (it) {
-                0 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0)
-                1 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_1)
-                2 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_2)
-                3 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_3)
-                4 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_4)
-                5 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_5)
-                6 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_6)
-                7 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_7)
-                8 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_8)
-                9 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_9)
-                10 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_10)
-            }
+            setMoonDrawable(it)
+        }
+    }
+
+    private fun setMoonDrawable(illuminationValue: Int) {
+        when (illuminationValue) {
+            0 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0)
+            1 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_1)
+            2 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_2)
+            3 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_3)
+            4 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_4)
+            5 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_5)
+            6 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_6)
+            7 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_7)
+            8 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_8)
+            9 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_0_9)
+            10 -> binding.moonPhaseIv.setImageResource(R.drawable.ic_moon_10)
         }
     }
 }

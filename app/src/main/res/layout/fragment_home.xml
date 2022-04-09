@@ -73,6 +73,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
+                    android:textSize="16dp"
                     android:layout_weight="1"
                     android:text="Moon Distance" />
 
@@ -81,6 +82,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textSize="16dp"
                     android:gravity="end"
                     android:text="@{viewModel.distanceText}"
                     tools:text="2345" />
@@ -97,6 +99,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textSize="16dp"
                     android:gravity="start"
                     android:text="Moon Age" />
 
@@ -104,6 +107,7 @@
                     android:id="@+id/moon_age_tv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:textSize="16dp"
                     android:layout_weight="1"
                     android:gravity="end"
                     android:text="@{viewModel.ageText}"
@@ -121,6 +125,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textSize="16dp"
                     android:gravity="start"
                     android:text="Moon Phase" />
 
@@ -129,6 +134,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textSize="16dp"
                     android:gravity="end"
                     android:text="@{viewModel.phaseText}"
                     tools:text="Waxing Gibbus" />
