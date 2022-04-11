@@ -9,4 +9,4 @@ Clean MVVM Architecture I like to follow for apps I build
 ## What the app does
 - Utilising the https://www.farmsense.net/api/astro-widgets/ api to get current information about the moon
 - The app displays a picture of the current moon's phase (New Moon, First Quarter, Full Moon etc)
-- Also displays some basic info such as distance to the moon age etc
+- Also displays some basic info such as distance to the moon, age etc
