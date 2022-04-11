@@ -13,4 +13,5 @@ Clean MVVM Architecture I like to follow for apps I build
 
 
 
-![Screenshot_20220411-221457_DemoMVVMApp](https://user-images.githubusercontent.com/26494172/162719888-393ccd28-fffb-4c69-9dd2-1588fccd7092.jpg = 250x250) 
+<img    
+src = "https://user-images.githubusercontent.com/26494172/162719888-393ccd28-fffb-4c69-9dd2-1588fccd7092.jpg" width="200" height="400" />
