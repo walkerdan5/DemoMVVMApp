@@ -60,6 +60,7 @@ class HomeViewModelTest {
         Truth.assertThat(homeViewModel.progressVisibility.value).isEqualTo(false)
     }
 
+//   TODO
 //    @Test
 //    fun onResponseReceived_checkCorrectMoonDrawableIsSet() {
 //        Mockito.`when`(homeViewModel.setIllumination(0.1346))

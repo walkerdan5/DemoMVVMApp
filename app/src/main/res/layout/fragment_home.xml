@@ -8,6 +8,10 @@
         <variable
             name="viewModel"
             type="com.example.demomvvmapp.ui.home.HomeViewModel" />
+
+        <variable
+            name="moonImgUrl"
+            type="Integer" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,9 +22,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="Tap the moon to get data"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/moon_phase_iv" />
 
@@ -31,22 +35,22 @@
             android:layout_margin="20dp"
             android:onClick="@{() -> viewModel.getTheMoonPhase()}"
             android:textSize="20dp"
+            app:imageResource="@{moonImgUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.100000024"
-            app:srcCompat="@drawable/ic_moon_0_4" />
+            app:layout_constraintVertical_bias="0.1" />
 
         <ProgressBar
             android:id="@+id/loadingProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/moon_phase_iv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/moon_phase_iv" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -73,18 +77,18 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:textSize="16dp"
                     android:layout_weight="1"
-                    android:text="Moon Distance" />
+                    android:text="Moon Distance"
+                    android:textSize="16dp" />
 
                 <TextView
                     android:id="@+id/moon_distance_tv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="16dp"
                     android:gravity="end"
                     android:text="@{viewModel.distanceText}"
+                    android:textSize="16dp"
                     tools:text="2345" />
             </LinearLayout>
 
@@ -99,18 +103,18 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="16dp"
                     android:gravity="start"
-                    android:text="Moon Age" />
+                    android:text="Moon Age"
+                    android:textSize="16dp" />
 
                 <TextView
                     android:id="@+id/moon_age_tv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="16dp"
                     android:layout_weight="1"
                     android:gravity="end"
                     android:text="@{viewModel.ageText}"
+                    android:textSize="16dp"
                     tools:text="7 days" />
             </LinearLayout>
 
@@ -125,18 +129,18 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="16dp"
                     android:gravity="start"
-                    android:text="Moon Phase" />
+                    android:text="Moon Phase"
+                    android:textSize="16dp" />
 
                 <TextView
                     android:id="@+id/moon_phase_tv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="16dp"
                     android:gravity="end"
                     android:text="@{viewModel.phaseText}"
+                    android:textSize="16dp"
                     tools:text="Waxing Gibbus" />
             </LinearLayout>
 
