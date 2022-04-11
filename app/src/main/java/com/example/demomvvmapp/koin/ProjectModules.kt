@@ -11,6 +11,7 @@ import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.component.KoinApiExtension
 import org.koin.dsl.module
 import retrofit2.Converter
 import retrofit2.Retrofit
@@ -60,6 +61,7 @@ val dataModule = module {
 
 }
 
+@OptIn(KoinApiExtension::class)
 val homeModule = module {
     viewModel {
         HomeViewModel(get())

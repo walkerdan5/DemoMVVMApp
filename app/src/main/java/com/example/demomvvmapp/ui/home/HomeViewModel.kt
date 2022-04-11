@@ -16,7 +16,6 @@ class HomeViewModel(private val apiContract: ApiContract) : BaseViewModel<HomeEv
 
     private val INITIAL_MESSAGE = "Get current moon phase"
     val NO_RESULTS = "No results found.."
-    val SEARCHING = "Getting lit moon data..."
 
     private val _text = MutableLiveData<String>().apply {
         value = INITIAL_MESSAGE
@@ -47,12 +46,10 @@ class HomeViewModel(private val apiContract: ApiContract) : BaseViewModel<HomeEv
     private val _responseData = MutableLiveData<MoonPhaseResponse>().apply {
         value = null
     }
+    val responseData: LiveData<MoonPhaseResponse> = _responseData
 
     private val _error by lazy { MutableLiveData<String>() }
     val error: LiveData<String> by lazy { _error }
-
-    val responseData: LiveData<MoonPhaseResponse> = _responseData
-
 
     fun getTheMoonPhase() {
         viewModelScope.launch {
@@ -63,12 +60,8 @@ class HomeViewModel(private val apiContract: ApiContract) : BaseViewModel<HomeEv
                     Timber.d("moonPhase = $result")
                     if (result[i] != null) {
                         result[i].let {
-                            _responseData.value = it
                             _error.postValue("")
-                            _distanceText.value = "${it.Distance} km"
-                            _ageText.value = "${(it.Age * 100).roundToInt() / 100.0} days"
-                            _phaseText.value = it.Phase
-                            _setIllumination.postValue(setIllumination(it.Illumination))
+                            handleMoonData(it)
                         }
                     } else {
                         _error.postValue("Something went wrong")
@@ -84,11 +77,22 @@ class HomeViewModel(private val apiContract: ApiContract) : BaseViewModel<HomeEv
         }
     }
 
+    private fun handleMoonData(moonData: MoonPhaseResponse) {
+        _responseData.value = moonData // used for unit testing the response
+        _distanceText.value = "${moonData.Distance} km"
+        _ageText.value = "${(moonData.Age * 100).roundToInt() / 100.0} days"
+        _phaseText.value = moonData.Phase
+        _setIllumination.postValue(setIllumination(moonData.Illumination))
+    }
+
     fun setLoadingState(state: Boolean) {
         _progressVisibility.postValue(state)
     }
 
-    fun setIllumination(illumination: Double): Int {
+    /**
+     * the illumination value is used for determining which image resource to load
+     */
+    private fun setIllumination(illumination: Double): Int {
         return when {
             illumination < 0.1 -> 0
             illumination in 0.1..0.2 -> {
@@ -122,11 +126,6 @@ class HomeViewModel(private val apiContract: ApiContract) : BaseViewModel<HomeEv
                 10
             }
         }
-
-
     }
 
-    fun findClicked() {
-        //postEvent(HomeEvent.FindClicked)
-    }
 }
