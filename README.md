@@ -1,6 +1,5 @@
 # Moon Phase App
-The purpose of this app is to demonstrate my knowledge for a clean and concise app following MVVM. 
-Clean MVVM Architecture I like to follow for apps I build
+The purpose of this app is to demonstrate my knowledge for a clean and concise app using the MVVM Architecture I like to follow for apps I build
 ## Technologies & Libraries Used:
   - Koin for DI (Koin is more concise and straightforward than the other DI frameworks. It is perfect for encapsulated feature/library modules.)
   - okhttp3 for making network calls
